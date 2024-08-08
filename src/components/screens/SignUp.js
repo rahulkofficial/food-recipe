@@ -14,7 +14,8 @@ export default function SignUp({ onLogin }) {
   const [showp,setShowp]=useState(false)
   const [showc,setShowc]=useState(false)
   const base_url=localStorage.getItem('base_url');
-  const navigate=useNavigate()
+  const origin=window.location.origin;
+
 
 
 
@@ -44,7 +45,7 @@ export default function SignUp({ onLogin }) {
                               title: "Good job!",
                               text: "Successfully registerd.",
                               icon: "success"
-                            }).then(()=>navigate("recipes/"));
+                            }).then(()=>{window.location.href=`${origin}/recipes`});
                           }
                           else{
                             setError(response.data.data);
